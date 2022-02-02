@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
+import { useAuth } from "../contexts/AuthContext";
 import "./pomodoro.styles.scss";
+import { useNavigate } from "react-router-dom";
 import AddTask from "./AddTask";
-import { LogoutButton } from "./LogoutButton";
 
 /* TIME REFERENCES */
 const TIME = {
-  second: 1000,
-  minute: 60 * 1000,
-  hour: 60 * 60 * 1000,
+  second: 1,
+  minute: 6 * 1,
+  hour: 60 * 6 * 1,
 };
 
 /* TIMER */
@@ -23,7 +24,7 @@ const POMODORO_STATES = {
   long_break: "long_break",
 };
 
-const Pomodoro = () => {
+const PomodoroFFW = () => {
   const [error, setError] = useState("");
   const [isPaused, setIsPaused] = useState(true);
   const [timeLeft, setTimeLeft] = useState(
@@ -37,6 +38,9 @@ const Pomodoro = () => {
     long: 0,
   });
 
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
   /* ADD TASK */
   const addTask = (task) => {
     if (!task.text || /^\s*$/.test(task.text)) {
@@ -45,6 +49,18 @@ const Pomodoro = () => {
     const newTasks = [task, ...tasks];
     setTasks(newTasks);
   };
+
+  /* LOG OUT */
+  async function handleLogout() {
+    setError("");
+
+    try {
+      await logout();
+      navigate.push("/login");
+    } catch {
+      setError("Failed to log out");
+    }
+  }
 
   useEffect(() => {
     const pomodoroLogic = () => {
@@ -89,7 +105,9 @@ const Pomodoro = () => {
 
   return (
     <section className="pomodoro__wrapper">
-      <LogoutButton setError={setError} />
+      <div className="log-out">
+        <button onClick={handleLogout}>Log out</button>
+      </div>
       <div className="main__container">
         {error && <h1>{error}</h1>}
         {/* <strong>Email:</strong> {currentUser.email} */}
@@ -97,7 +115,6 @@ const Pomodoro = () => {
         <div className="pomodoro__container">
           <div className="status__container">
             <span
-              data-testid="pomodoro"
               className={
                 mode === POMODORO_STATES.pomodoro
                   ? "active"
@@ -193,4 +210,4 @@ const Pomodoro = () => {
   );
 };
 
-export default Pomodoro;
+export default PomodoroFFW;
