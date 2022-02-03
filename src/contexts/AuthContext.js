@@ -5,7 +5,6 @@ import {
 } from "firebase/auth";
 import React, { useContext, useState, useEffect } from "react";
 import { auth } from "../firebase-config";
-//import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
 
 export const AuthContext = React.createContext();
 
@@ -27,19 +26,11 @@ export function AuthProvider({ children }) {
   }
 
   async function login(email, password) {
-    /*  try{
-      const user = await 
-    } catch{
-
-    } */
-    console.log(email, password);
     return signInWithEmailAndPassword(auth, email, password);
   }
 
   async function logout() {
     await signOut(auth);
-    /* 
-    return auth.signOut(); */
   }
 
   useEffect(() => {

@@ -29,7 +29,28 @@
     font-weight: 300;
     margin: 0 0 0.5em -3em;
   }
+
+  & .count-times {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8em;
+    width: 300px;
+    text-align: center;
+    margin: 1em 0;
+
+    & h1 {
+      font-size: 1.4em;
+      //width: 250px;
+      align-self: center;
+    }
+
+    & ul {
+      text-align: left;
+      font-size: 0.75em;
+    }
+  }
 }
+
 .log-out {
   position: absolute;
   top: 3%;
@@ -39,9 +60,14 @@
     background: transparent;
     font-size: 0.5em;
   }
+  & button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 }
 
 .pomodoro__container {
+  max-height: 500px;
   width: 82%;
   min-width: 671px;
   height: 40vh;
@@ -56,6 +82,7 @@
   flex-direction: column;
   align-items: self-start;
   margin: 0 0 1em;
+  position: relative;
 
   & span {
     font-size: 0.6em;
@@ -108,9 +135,29 @@
         fill: forestgreen;
       }
       cursor: pointer;
+      transform: scale(1.1);
     }
     .btn-pause:hover {
       cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
+  & .btn-restart {
+    position: absolute;
+    top: 4.5em;
+    right: 0.5em;
+    & button {
+      background-color: #eaeaea;
+      border-radius: 0.8em;
+      border: none;
+      height: 2.5em;
+      width: 11em;
+      /* font-size: 0.4em; */
+      font-weight: 700;
+    }
+    & button:hover {
+      cursor: pointer;
+      transform: scale(1.1);
     }
   }
 
@@ -155,6 +202,7 @@
       padding: 0 0.5em;
       &:hover {
         cursor: pointer;
+        transform: scale(1.1);
       }
     }
   }
@@ -204,6 +252,18 @@
   & p {
     text-align: center;
     margin: 0.5em 0 0;
+  }
+  & button {
+    border: transparent;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    background-color: blue;
+    padding: 0.2em 0;
+  }
+  & button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
   }
 }
 .register-btn {

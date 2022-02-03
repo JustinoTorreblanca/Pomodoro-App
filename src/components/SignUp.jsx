@@ -28,7 +28,6 @@ const SignUp = () => {
       navigate("/");
     } catch (error) {
       setError("Failed to create an account");
-      console.log(error.message);
     }
 
     setLoading(false);
@@ -39,7 +38,6 @@ const SignUp = () => {
 
       <div className="container__login">
         <h1>Sign up</h1>
-        {/* {currentUser && currentUser.email} */}
         <div>
           <div className="form__container" onSubmit={handleSubmit}>
             <label htmlFor="name">First Name</label>

@@ -92,7 +92,6 @@ const Pomodoro = () => {
       <LogoutButton setError={setError} />
       <div className="main__container">
         {error && <h1>{error}</h1>}
-        {/* <strong>Email:</strong> {currentUser.email} */}
         <h1>Pomodoro App</h1>
         <div className="pomodoro__container">
           <div className="status__container">
@@ -188,7 +187,22 @@ const Pomodoro = () => {
         <AddTask onSubmit={addTask} />
       </div>
 
-      <div className=""></div>
+      <div className="count-times">
+        <h1>
+          <strong>Your stats:</strong>
+        </h1>
+        <ul>
+          <li>
+            Total pomodoros: <strong>{status.pomodoro}</strong>
+          </li>
+          <li>
+            Total short-breaks: <strong>{status.short} </strong>
+          </li>
+          <li>
+            Total long-breaks: <strong>{status.long}</strong>
+          </li>
+        </ul>
+      </div>
     </section>
   );
 };

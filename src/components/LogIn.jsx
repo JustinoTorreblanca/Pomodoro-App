@@ -20,7 +20,6 @@ const Login = () => {
       await login(emailRef.current.value, passwordRef.current.value);
       navigate("/");
     } catch (e) {
-      debugger;
       setError("Failed to login");
     }
 
