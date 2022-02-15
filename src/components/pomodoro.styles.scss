@@ -319,9 +319,10 @@
 @media (min-width: 536px) {
   .pomodoro__container {
     width: 510px;
-    height: 45vh;
+    height: 275px;
     max-height: 275px;
     padding: 0.5em;
+
     justify-content: space-evenly;
 
     & .status__container {
