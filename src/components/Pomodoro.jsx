@@ -46,6 +46,12 @@ const Pomodoro = () => {
     setTasks(newTasks);
   };
 
+  const resetPomodoro = () => {
+    setIsPaused(true);
+    setMode(POMODORO_STATES.pomodoro);
+    setTimeLeft(POMODORO_TIME_REFERENCES.pomodoroMinutes);
+  };
+
   useEffect(() => {
     const pomodoroLogic = () => {
       if (timeLeft > 0) {
@@ -95,6 +101,9 @@ const Pomodoro = () => {
         <h1>Pomodoro App</h1>
         <div className="pomodoro__container">
           <div className="status__container">
+            <div className="btn-restart">
+              <button onClick={resetPomodoro}>Reset timer</button>
+            </div>
             <span
               data-testid="pomodoro"
               className={

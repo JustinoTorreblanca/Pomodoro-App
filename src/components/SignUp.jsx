@@ -34,7 +34,8 @@ const SignUp = () => {
   }
   return (
     <section className="login__wrapper">
-      {error && <h1>{error}</h1>}
+      <h1 className="welcome__msg">Create an account</h1>
+      {error && <h1 className="error__msg">{error}</h1>}
 
       <div className="container__login">
         <h1>Sign up</h1>
@@ -81,8 +82,7 @@ const SignUp = () => {
               Sign up
             </button>
             <p>
-              Have an account?
-              <Link to="/login">Login</Link>
+              Have an account? <Link to="/login">Login</Link>
             </p>
           </div>
         </div>

@@ -28,7 +28,8 @@ const Login = () => {
 
   return (
     <section className="login__wrapper">
-      {error && <h1>{error}</h1>}
+      <h1 className="welcome__msg">Welcome to My Pomodoro App</h1>
+      {error && <h1 className="error__msg">{error}</h1>}
       <div className="container__login">
         <h1>Log in</h1>
         <div>
